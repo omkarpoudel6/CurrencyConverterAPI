@@ -1,6 +1,63 @@
-Locally: 
-uvicorn app.main:app --reload
+# Currency Converter API - FastAPI
 
-Docker: 
-docker build -t currency-converter-api .
-docker run -p 8000:8000 --env-file .env currency-converter-api
+This is a simple Currency Converter API built with **FastAPI**, following the **12-Factor App principles**. It provides endpoints to convert between different currencies using real-time exchange rates from a third-party provider (e.g., ExchangeRate-API, exchangerate.host, etc.).
+
+---
+
+## Features
+
+- Convert from one currency to another.
+- Real-time exchange rates.
+- Built with FastAPI for high performance and easy scalability.
+- Dockerized for portability and consistent deployment.
+
+---
+
+## Tech Stack
+
+- Python 3.11+
+- FastAPI
+- HTTPX (for external API calls)
+- Docker & Docker Compose (optional)
+- Environment-based configuration (.env)
+
+---
+
+## Configuration
+
+Create a `.env` file in the root directory with the following variables:
+
+```env
+EXCHANGE_RATE_API_URL=https://api.exchangerate.host/latest
+DEFAULT_BASE_CURRENCY=USD
+```
+
+## Running the App Locally
+
+- Clone the Repository
+    - git clone https://github.com/omkarpoudel6/CurrencyConverterAPI
+    - cd CurrencyConverterAPI
+
+- Create a Virtual Environment
+    - python -m venv venv
+    - source venv/bin/activate  
+    - On Windows use: venv\Scripts\activate
+
+- Install Dependencies
+    - pip install -r requirements.txt
+
+- Run the App
+    - uvicorn main:app --reload
+
+## Running with Docker
+
+- Build the Docker Image
+    - docker build -t currency-converter .
+
+- Run the container
+    - docker run -d -p 8000:8000 --env-file .env currency-converter
+
+
+
+
+
